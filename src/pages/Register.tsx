@@ -27,14 +27,7 @@ const Register = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (couponCode && !validateCouponCode(couponCode)) {
-      toast({
-        title: "Invalid coupon code",
-        description: "Please enter a valid coupon code or leave it empty",
-        variant: "destructive",
-      });
-      return;
-    }
+    
 
     if (username && email && password) {
       // Simulating successful registration
