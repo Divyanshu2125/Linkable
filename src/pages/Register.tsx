@@ -20,14 +20,21 @@ const Register = () => {
 
   const validateCouponCode = (code: string) => {
     // This is a mock validation - replace with actual coupon validation
-    const validCoupons = ["WELCOME10", "SPECIAL20"];
+    const validCoupons = ["USER123", "SPECIAL20"];
     return validCoupons.includes(code);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    
+    if (couponCode && !validateCouponCode(couponCode)) {
+      toast({
+        title: "Invalid coupon code",
+        description: "Please enter a valid coupon code or leave it empty",
+        variant: "destructive",
+      });
+      return;
+    }
 
     if (username && email && password) {
       // Simulating successful registration
